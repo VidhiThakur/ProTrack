@@ -6,7 +6,7 @@ import datetime
 #Projects associated with a Group
 
 class project(models.Model):                                                                 
-    pgroup = models.ForeignKey(Group)
+    pgroup = models.ForeignKey(Group,on_delete=models.DO_NOTHING)
     pname = models.CharField(max_length=100,verbose_name = "Project Name")
     pdesc = models.CharField(max_length=100,blank=True,verbose_name = "Project Description")
     pcreated = models.DateTimeField(auto_now_add=True,verbose_name = "Create time")
@@ -51,7 +51,7 @@ class task(models.Model):
     risk = models.CharField(max_length=200,blank=True)
     priority = models.CharField(max_length=50,choices=Priority_Choices)
     state = models.CharField(max_length=50, default='open',choices=State_Choices)
-    assign =  models.ForeignKey(User,blank=True, null=True)
+    assign =  models.ForeignKey(User,blank=True, null=True,on_delete=models.DO_NOTHING)
     remainder = models.CharField(max_length=200,blank=True)
     heading = models.CharField(max_length=200,blank=True)
     dep_task = models.CharField(max_length=100,blank=True)
@@ -82,7 +82,7 @@ class tag(models.Model):
 # Task's associated comments
 class comment(models.Model):
      task = models.ForeignKey(task, on_delete=models.CASCADE)
-     member = models.ForeignKey(User)
+     member = models.ForeignKey(User,on_delete=models.DO_NOTHING)
      comment = models.CharField(max_length=500)
      ccreated = models.DateTimeField(auto_now_add=True)
      

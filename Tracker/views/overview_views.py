@@ -1,6 +1,6 @@
-from django.shortcuts import render,get_object_or_404, redirect, render_to_response
+from django.shortcuts import render,get_object_or_404, redirect,render
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth.models import User, Group
 from Tracker.models import project,sprint,notification,task,tag, project_file
 from django.contrib.auth import authenticate, login, logout

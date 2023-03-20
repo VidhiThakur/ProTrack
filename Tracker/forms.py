@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from .models import project,sprint,task,tag,comment,project_file
-from django.forms.extras.widgets import SelectDateWidget
+from django.forms.widgets import SelectDateWidget
 import datetime
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
